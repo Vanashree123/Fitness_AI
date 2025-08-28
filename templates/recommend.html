@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Recommended — {{ workout_type|capitalize }}</h2>
+<div class="list">
+  {% for ex in exercises %}
+    <div class="row between card">
+      <div>
+        <div class="exname">{{ ex.name }}</div>
+        <div class="small">{{ ex.tip }}</div>
+      </div>
+      <a class="btn" href="{{ url_for('exercise', name=ex.name) }}">Start</a>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

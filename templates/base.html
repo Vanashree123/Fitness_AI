@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}{% endblock %} - {{ sitename }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="{{ url_for('index') }}" class="brand">FitAI</a>
+      <div class="nav-links">
+        {% if not user %}
+          <a href="{{ url_for('signup') }}">Sign Up</a>
+          <a href="{{ url_for('login') }}">Login</a>
+        {% else %}
+          <a href="{{ url_for('workout') }}">Workout</a>
+          <a href="{{ url_for('recommend') }}">AI Plan</a>
+          <a href="{{ url_for('exercise', workout_type='push') }}">Exercises</a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <main class="content">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 FitAI | Your AI Fitness Coach</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block title %}FitAI - Your Personal AI Fitness Coach{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Train Smarter with <span class="gradient-text">AI-Powered</span> Fitness</h1>
+      <p>Real-time posture coaching, automatic rep counting, and personalized workout plans that adapt to your progress</p>
+      <div class="hero-buttons">
+        <a href="{{ url_for('signup') }}" class="btn btn-primary btn-lg">Start Free Trial</a>
+        <a href="{{ url_for('login') }}" class="btn btn-outline-light btn-lg">Sign In</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section">
+  <div class="container">
+    <h2>Why Choose FitAI?</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="feature-card">
+          <h3>AI Posture Detection</h3>
+          <p>Advanced computer vision analyzes your form in real-time, providing instant feedback to perfect your technique and prevent injuries.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <h3>Smart Rep Counting</h3>
+          <p>Never lose count again! Our AI automatically tracks every rep and set, letting you focus entirely on your form and breathing.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <h3>Intelligent Progress</h3>
+          <p>Every workout is analyzed and saved locally. Watch your strength grow with detailed analytics and personalized insights.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="how-it-works">
+  <div class="container">
+    <h2>How It Works</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="step-card">
+          <h4>1. Position Your Camera</h4>
+          <p>Place your device camera to capture your full body during exercises.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="step-card">
+          <h4>2. Select Exercise</h4>
+          <p>Choose from push-ups, squats, curls, and more personalized recommendations.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="step-card">
+          <h4>3. Get Real-Time Feedback</h4>
+          <p>Receive instant form corrections and automatic rep counting as you exercise.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Actions Section -->
+<section class="quick-actions">
+  <div class="container">
+    <h2>Ready to Transform Your Body?</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="action-card">
+          <h4>Get AI Recommendations</h4>
+          <p>Receive personalized workout plans based on your fitness level and goals.</p>
+          <a href="{{ url_for('recommend') }}" class="btn btn-outline-primary">Get My Plan</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="action-card">
+          <h4>Start Workout Now</h4>
+          <p>Jump straight into your next workout with real-time AI coaching.</p>
+          <a href="{{ url_for('workout') }}" class="btn btn-primary">Start Workout</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="action-card">
+          <h4>View Your Progress</h4>
+          <p>Check your fitness journey with detailed analytics and achievements.</p>
+          <a href="{{ url_for('exercise', workout_type='push') }}" class="btn btn-outline-primary">View Stats</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section">
+  <div class="container">
+    <h2>What Our Users Say</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <p>"FitAI helped me correct my squat form and avoid injury. The instant feedback is amazing!"</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <p>"I love how the app tracks my reps automatically. Makes my workouts stress-free!"</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <p>"Personalized plans actually helped me stay consistent and see real progress."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

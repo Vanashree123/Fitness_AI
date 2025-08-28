@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Session: {{ exercise }}</h2>
+
+<div class="grid2">
+  <div class="panel">
+    <div class="video-wrap">
+      <video id="video" playsinline></video>
+      <canvas id="overlay"></canvas>
+    </div>
+    <div class="controls">
+      <button class="btn" id="startBtn">Start Camera</button>
+      <button class="btn ghost" id="stopBtn">Stop</button>
+      <button class="btn ghost" id="flipBtn">Flip</button>
+      <button class="btn ghost" id="muteBtn">🔊 Voice On</button>
+    </div>
+    <div class="small">Tip: allow camera permission. Works on <b>http://localhost</b> or HTTPS.</div>
+  </div>
+
+  <div class="panel">
+    <div class="row">
+      <label>Target Sets <input type="number" id="targetSets" value="3" min="1"></label>
+      <label>Target Reps <input type="number" id="targetReps" value="12" min="1"></label>
+    </div>
+    <div class="stats">
+      <div class="stat">Set: <b id="setCount">1</b></div>
+      <div class="stat">Reps: <b id="repCount">0</b></div>
+    </div>
+
+    <div class="row">
+      <button class="btn ghost" id="repMinus">−1 Rep</button>
+      <button class="btn ghost" id="repPlus">+1 Rep</button>
+      <button class="btn" id="resetAll">Reset</button>
+    </div>
+
+    <div class="feedback" id="feedback">Posture feedback will appear here.</div>
+
+    <iframe class="tutorial" id="tutorial" allowfullscreen></iframe>
+    <div class="small" id="formTip"></div>
+  </div>
+</div>
+
+<script>
+  window.GP_EXERCISE = "{{ exercise }}";  // pass to JS
+</script>
+
+<!-- MediaPipe (browser) -->
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js"></script>
+
+<script src="{{ url_for('static', filename='pose_client.js') }}"></script>
+<script>
+  // Configure saver endpoint for auto-logging sets
+  window.GP_SAVE_URL = "{{ url_for('api_logs') }}";
+  window.GP_USER = "{{ user.name }}";
+</script>
+{% endblock %}

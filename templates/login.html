@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="background: linear-gradient(135deg, #002366, #4169E1); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px;">
+    <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 20px; padding: 40px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); width: 100%; max-width: 400px; border: 1px solid rgba(255, 255, 255, 0.2); color: white;">
+        
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 10px; color: white;">Welcome back</h2>
+            <p style="color: rgba(255, 255, 255, 0.8); font-size: 1.1rem;">Sign in to your Gym-Plus account</p>
+        </div>
+        
+        <form method="post" class="form">
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-weight: 600; color: white;">Email</label>
+                <input type="email" name="email" placeholder="Enter your email" required style="width: 100%; padding: 12px 15px; border: none; border-radius: 8px; background: rgba(255, 255, 255, 0.2); color: white; font-size: 16px;">
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-weight: 600; color: white;">Password</label>
+                <input type="password" name="password" placeholder="Enter your password" required style="width: 100%; padding: 12px 15px; border: none; border-radius: 8px; background: rgba(255, 255, 255, 0.2); color: white; font-size: 16px;">
+            </div>
+            
+            {% if error %}
+                <div style="background: rgba(255, 0, 0, 0.2); color: #ffcccc; padding: 10px; border-radius: 8px; margin-bottom: 15px; text-align: center;">{{ error }}</div>
+            {% endif %}
+            
+            <button type="submit" style="width: 100%; padding: 15px; background: linear-gradient(135deg, #FFD700, #FFA500); color: #002366; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">
+                Login
+            </button>
+        </form>
+        
+        <p style="text-align: center; margin-top: 20px; color: rgba(255, 255, 255, 0.8);">
+            New here? <a href="{{ url_for('signup') }}" style="color: #FFD700; text-decoration: none; font-weight: 600;">Create an account</a>
+        </p>
+    </div>
+</div>
+{% endblock %}
